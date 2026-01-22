@@ -1,4 +1,4 @@
-# SysAdmin & Cybersecurity Labs
+# System Administration, Networking & Cybersecurity Labs
 
 This repository contains hands-on System Administration, Networking, and Cybersecurity labs completed along with Software Development Course Year 2.
 
