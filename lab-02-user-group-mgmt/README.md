@@ -95,11 +95,20 @@ sudo gpasswd -d jove-dev admins
 ---
 
 ## Security Considerations
+-  Pending
 
 ---
 
 ## Reflection
+- Pending
+
+---
+
+## Quick Glossary
+
+- Pending
 
 
-
+## Next Steps
+- Pending
 
