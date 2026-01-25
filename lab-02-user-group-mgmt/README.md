@@ -133,12 +133,11 @@ Access was validated by testing write permissions as a group member and as a non
 ---
 
 ## Reflection
-This lab reinforced how Linux access control is primarily driven by group membership and permissions rather than individual users.
+This lab helped me better understand how Linux access control works through groups and permissions rather than individual users. Working through permission issues showed me how easy it is to misconfigure access and how to verify and fix problems using commands like id, sudo -l, and ls -ld.
 
-Troubleshooting permission issues helped solidify my understanding of how misconfigurations occur and how to validate and correct them using tools such as id, sudo -l, and ls -ld. Running the lab locally in VirtualBox provided faster feedback compared to sandbox environments and made the learning process more intuitive.
+There are still plenty of Linux commands I’m getting familiar with, but running the lab locally in VirtualBox made it much easier to experiment and learn. I plan to redo this lab with minimal guidance to build more confidence.
 
 ---
-
 
 
 ## Next Steps
