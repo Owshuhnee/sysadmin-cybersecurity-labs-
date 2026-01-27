@@ -44,7 +44,7 @@ All access must be controlled through **groups and permissions**, not per-user e
 
 ---
 
-## Task 1 — Create Role-Based Groups
+## Task 1 — Create Role-Based Groups (Complete)
 ### Completion Date/Time - 27/01/26 12:23 AM
 
 ### User Story
@@ -53,7 +53,7 @@ As an administrator, I want role-based groups so permissions are managed consist
 ### Tasks Performed / Reflection
 Existing role-based groups (admins and developers) were already present from the initial Lab 2 setup, so these were reused and modified.
 
-I used getent group to review all groups on the system. This returned a large list which got me confused. This just means that Linux also includes many pre-existing system groups in addition to administrator-defined groups. I noticed that custom user and role groups typically begin at GID 1000 and above, while system groups use lower IDs.
+I used getent group to review all groups on the system. This returned a large list which got me confused. This just means that Linux also includes many pre-existing system groups in addition to administrator-defined groups. I noticed that custom user and role groups typically begin at GID 1000 and above, while system groups use lower IDs. I dont have information yet as of why but will park it for research.
 
 To align with clearer role naming and least-privilege principles, I made the following changes:
 
@@ -81,7 +81,6 @@ sudo groupmod -n [new-group-name] [old-group-name]
 - [Modify Group](./screenshots/03-group-mod.png)
 - [Verify updates](./screenshots/05-verify-group-update.png)
 
-![Check existing group](./screenshots/01-getent-group.png)
 ![Add a group](./screenshots/02-group-add.png)
 ![Modify Group](./screenshots/03-group-mod.png)
 ![Verify updates](./screenshots/05-verify-group-update.png)
@@ -89,19 +88,23 @@ sudo groupmod -n [new-group-name] [old-group-name]
 ---
 
 ## Task 2 — Onboard New Users (pending)
+### Completion Date/Time - 
 
 ### User Story
 As an administrator, I want new staff accounts created with correct group membership and secure defaults.
 
 ### Users
-- **Developer:**  
-- **QA:**  
-- **Intern:**  
+- **SuperAdmin** jove
+- **Sysadmins** jove-admin modify to mark-admin (to avoid confusion)
+- **Developers** alex-dev
+- **QA** mika-qa
+- **Interns** sam-intern
 
 ### Tasks Performed
-- 
-- 
-- 
+- Add users to the system (List above) and verify that users exits
+- Ensure that it Primary group is correct
+- Create home directory and verify it exists
+- Check and make sure users for sudo access (by user, by group)
 
 ### Acceptance Criteria
 - [ ] Users exist and can log in
@@ -219,21 +222,6 @@ As an administrator, I want to remove access cleanly when a staff member leaves.
 
 ---
 
-## Audit Summary
-
-- Relevant users:
-- Relevant groups:
-- Key permission points verified:
-
----
-
-## Reflection
-- Guide Questions
-- What concepts felt clearer this time?
-- What still feels confusing?
-- What would you do differently in a real production system?
-
----
 
 ## Next Steps
 
