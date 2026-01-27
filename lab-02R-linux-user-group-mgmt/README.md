@@ -12,7 +12,7 @@
 
 ## Scenario Overview
 
-You are acting as a **junior Linux system administrator** in a small organization.  
+You are acting as a **Junior Linux System Administrator** in a small organization.  
 A new internal application project is starting, and you are responsible for:
 
 - Onboarding users
@@ -44,34 +44,35 @@ All access must be controlled through **groups and permissions**, not per-user e
 
 ---
 
-## Task 1 — Group/Role Management 
+## Task 1 — Group / Role Management
 
 ### User Story
-As an administrator, I want role-based groups so permissions are managed consistently and securely.
+As an administrator, I want role-based groups so permissions can be managed consistently and securely.
 
-### Tasks Performed / Reflection
-Existing role-based groups (admins and developers) were already present from the initial Lab 2 setup, so these were reused and modified.
+### Tasks Performed
+Existing role-based groups (`admins` and `developers`) were already present from the initial Lab 2 setup, so these were reused and refined rather than recreated.
 
-I used getent group to review all groups on the system. This returned a large list which got me confused. This just means that Linux also includes many pre-existing system groups in addition to administrator-defined groups. I noticed that custom user and role groups typically begin at GID 1000 and above, while system groups use lower IDs. I dont have information yet as of why but will park it for research.
+I used `getent group` to review all groups present on the system. This returned a large list, which initially caused some confusion. This behaviour is expected, as Linux includes many pre-existing system groups in addition to administrator-defined groups.
 
-To align with clearer role naming and least-privilege principles, I made the following changes:
+During this review, I observed that custom user and role-based groups typically start at GID 1000 and above, while system groups generally use lower GID values. While I have not yet explored the full reasoning behind this design choice, it has been noted for further research.
 
-- Renamed admins to sysadmins
-- Renamed developers to devs
-- Created new role groups: qas and interns
+To align with clearer role naming and least-privilege principles, the following changes were made:
+- Renamed `admins` to `sysadmins`
+- Renamed `developers` to `devs`
+- Created new role-based groups: `qas` and `interns`
 
-New groups were added using the groupadd command. Existing groups updated using groupmod command.
+New groups were created using the `groupadd` command, and existing groups were renamed using the `groupmod` command.
 
 ### Acceptance Criteria
-- [x] Groups exist and are visible in the system
-- [x] Group IDs and memberships can be verified
-- [x] No users have unnecessary privileges
+- [x] Groups exist and are visible in the system  
+- [x] Group IDs and memberships can be verified  
+- [x] No users have unnecessary privileges  
 
-### Commands used
+### Commands Used
 ```bash
 getent group
-sudo groupadd [groupname]
-sudo groupmod -n [new-group-name] [old-group-name]
+groupadd <groupname>
+groupmod -n <new-group-name> <old-group-name>
 ```
 
 ### Evidence
@@ -83,6 +84,10 @@ sudo groupmod -n [new-group-name] [old-group-name]
 ![Add a group](./screenshots/02-group-add.png)
 ![Modify Group](./screenshots/03-group-mod.png)
 ![Verify updates](./screenshots/05-verify-group-update.png)
+
+
+### Reflection
+In this task I learned how effective group naming and structure support role-based access control (RBAC). Renaming and reusing groups mirrored real-world administration, where changes are often made on existing systems rather than starting from scratch. Task 1 was straightforward and commands were easy to follow.
 
 ---
 
@@ -105,15 +110,19 @@ After confirming the administrative account was correctly updated, I created add
 - **Interns** sam-intern
 
 ![Add Users](./screenshots/07-create-users-success.png)  
-![Verify Users](./screenshots/08-verify-uid-gid.png)  
+![Verify Users-Groups](./screenshots/08-verify-uid-gid.png)  
+![User login sucess](./screenshots/10-user-login-sucess.png) 
 ![Verify Home Directory](./screenshots/09-verify-user-home-dir.png)
- 
+
+Note: Attempts to elevate privileges using `sudo` and switch users using `su` were intentionally denied. This confirms that only explicitly authorised accounts can perform administrative actions, enforcing least-privilege access.
+
+![Sudo access](./screenshots/10-verify-sudo-access.png)
 
 ### Acceptance Criteria
-- [ ] Users exist and can log in
-- [ ] Correct primary and secondary groups assigned
+- [x] Users exist and can log in
+- [x] Correct primary and secondary groups assigned
 - [x] Home directories exist with correct ownership
-- [ ] No administrative access granted unintentionally
+- [x] No administrative access granted unintentionally
 
 ### Commands Used
 ```bash
@@ -123,7 +132,13 @@ ls -ld /home/<username>
 useradd -m -s /bin/bash <username>
 getent passwd <username>
 id <username>
+sudo -l -U <username>
 ```
+
+### Reflection
+This task showed that updating user accounts in Linux often involves multiple steps to keep usernames, groups, and home directories consistent. Creating and validating role-based users reinforced the importance of checking permissions instead of relying on defaults. I’ll need more practice with Task 2 to fully lock in the workflow.
+
+---
 
 
 ## Task 3 — Configure Shared Directories & Permissions (pending)
