@@ -200,6 +200,8 @@ ls -l <directoryname>
 This task reinforced how group-based permissions simplify access management across shared directories. Using group ownership and setgid reduced the need for individual user permissions and made the setup easier to maintain. I’m getting more comfortable with the workflow, but I still get mixed up with the numeric values for setgid and permissions, so I’ll need more hands-on practice.
 
 ![Read-only Access](./screenshots/14-read-only-access-qas.png)
+![Access only](./screenshots/15-access-only-interns.png)
+
 
 ---
 

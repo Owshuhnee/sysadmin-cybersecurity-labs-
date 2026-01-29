@@ -56,3 +56,9 @@ They act as a personal reference and will be updated as I learn and use more com
 
 ---
 
+Pending: need to create Permissions library here
+2770
+2775
+111
+555
+
