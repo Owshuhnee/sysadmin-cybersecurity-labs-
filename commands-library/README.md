@@ -62,3 +62,7 @@ Pending: need to create Permissions library here
 111
 555
 
+sudo shutdown now
+clear or ctrl + l
+ 
+

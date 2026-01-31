@@ -4,7 +4,7 @@
 - **Category:** System Administration
 - **Subdomain:** Linux Administration
 - **Difficulty:** Beginner
-- **Mode:** Independent (no AI assistance), Scenario was AI generated
+- **Mode:** Scenario was AI generated
 - **Status:** In Progress
 - **Estimated Time:** (pending)
 
@@ -180,7 +180,15 @@ Directory ownership and permissions were then updated to allow the appropriate g
 
 ![Directory ownership and permission](./screenshots/13-group-ownership-and-permission.png)
 
-The same process was repeated for the remaining directories to ensure all acceptance criteria were met.
+When I tested whether `alex-dev` (in the `devs` group) could access the `application` folder, I initially got **“No such file or directory”**. This turned out to be a **path issue** — I was trying to access `/application`, but the folder I created was actually inside my home directory (e.g. `/home/jove/application`).
+
+![No such file](./screenshots/16-no-such-file.png)
+
+I tried again using the correct location but I got **“Permission denied”**. I was sure that the application folder was for the devs group in which alex-dev is a member of. 
+
+![Permission denied](./screenshots/17-permission-denied.png)
+
+To address the permission problem, 
 
 
 ### Commands Used
@@ -192,7 +200,6 @@ id <username>
 ls -l
 chown :<groupname> <directoryname>
 chmod 2775 <directoryname>
-ls -l <directoryname>
 ``` 
 
 
@@ -201,7 +208,6 @@ This task reinforced how group-based permissions simplify access management acro
 
 ![Read-only Access](./screenshots/14-read-only-access-qas.png)
 ![Access only](./screenshots/15-access-only-interns.png)
-
 
 ---
 
