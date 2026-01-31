@@ -6,10 +6,10 @@ As a team, we need shared directories where access is granted only to the approp
 
 
 ### Acceptance Criteria
-- [ ] Dev users can write to the application directory
+- [x] Dev users can write to the application directory
 - [ ] QA users can read logs but cannot modify them
 - [ ] Interns can only access the training directory
-- [ ] Unauthorized access attempts fail
+- [x] Unauthorized access attempts fail
 
 
 ### Directories
@@ -108,6 +108,8 @@ sudo chmod o+x /home/jove
 
 This resolved the access issue without moving the directory. Authorized users can now traverse the path to the shared application folder, while the contents of the home directory remain protected.
 
+![Change permission](./screenshots/19-change-permission.png)
+
 
 ### Commands Used
 ```bash
@@ -118,9 +120,8 @@ id <username>
 ls -l
 chown :<groupname> <directoryname>
 chmod 2775 <directoryname>
-sudo chmod o+x path/or/folder
+sudo chmod o+x <path or folder>
 ``` 
-
 
 ### Reflection
 This task reinforced how group-based permissions simplify access management across shared directories. Using group ownership and setgid reduced the need for individual user permissions and made the setup easier to maintain. I’m getting more comfortable with the workflow, but I still get mixed up with the numeric values for setgid and permissions, so I’ll need more hands-on practice.
